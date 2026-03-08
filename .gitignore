@@ -6,3 +6,4 @@
 *.class
 *Test.java
 **/test/
+.spring-api-helper.json

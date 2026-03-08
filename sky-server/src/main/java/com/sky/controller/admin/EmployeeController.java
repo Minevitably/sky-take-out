@@ -8,6 +8,9 @@ import com.sky.result.Result;
 import com.sky.service.EmployeeService;
 import com.sky.utils.JwtUtil;
 import com.sky.vo.EmployeeLoginVO;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +22,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 员工管理
+ * 员工相关接口
  */
 @RestController
 @RequestMapping("/admin/employee")
 @Slf4j
+@Api(tags="员工相关接口")
 public class EmployeeController {
 
     @Autowired
@@ -38,6 +42,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/login")
+    @ApiOperation("登录")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
         log.info("员工登录：{}", employeeLoginDTO);
 
@@ -67,6 +72,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/logout")
+    @ApiOperation("退出")
     public Result<String> logout() {
         return Result.success();
     }
