@@ -10,6 +10,7 @@ import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
+import com.sky.entity.Employee.EmployeeBuilder;
 import com.sky.exception.AccountLockedException;
 import com.sky.exception.AccountNotFoundException;
 import com.sky.exception.PasswordErrorException;
@@ -108,6 +109,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> result = page.getResult();
 
         return new PageResult(total, result);
+    }
+
+
+
+    /**
+     * 启用或禁用员工账号
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        EmployeeBuilder employee = Employee.builder()
+                        .status(status)
+                        .id(id);;
+        employeeMapper.update(employee);
     }
 
 }
