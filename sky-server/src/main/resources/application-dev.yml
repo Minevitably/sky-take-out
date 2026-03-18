@@ -6,3 +6,8 @@ sky:
     database: sky_take_out
     username: root
     password: 123456
+  minio:
+    endpoint: minio.plotmax.opencs.site
+    access-key-id: luvwbAchWdE3UWm8te5M
+    access-key-secret: wVoIV5AQ0RngIu6kRPnEc71LQpF7N1W8EZ33moGs
+    bucket-name: sky-itcast
